@@ -1,0 +1,11 @@
+[user]
+	name = Josh Bundt
+	email = wideglide@users.noreply.github.com
+[init]
+	defaultBranch = main
+[core]
+	editor = vim
+	autocrlf = input
+[credential]
+	helper = store
+

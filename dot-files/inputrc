@@ -1,22 +1,39 @@
 $include /etc/inputrc
 
+# set editing-mode vi
+$if mode=vi
+        set keymap vi-command
+        set convert-meta on
+
+        set keymap vi-insert
+        "jj": vi-movement-mode
+        "\C-l":clear-screen
+        "\e.":yank-last-arg
+$endif
+
 "\C-p":history-search-backward
 "\C-n":history-search-forward
 
-set colored-stats On
-set completion-ignore-case On
+# Maximum number of characters to be the common prefix
 set completion-prefix-display-length 3
+
+# Show possible completions using different colors
+set colored-stats On
+
+# Immediately add a trailing slash when autocompleting symlinks to directories
 set show-all-if-unmodified On
-set completion-map-case on
 
 # List all matches in case multiple possible completions are possible
 set show-all-if-ambiguous On
 
-# Immediately add a trailing slash when autocompleting symlinks to directories
-set mark-symlinked-directories On
+# Treat hypen and underscores as equivalent.
+set completion-map-case on
 
 # Make Tab autocomplete regardless of filename case
-set completion-ignore-case on
+set completion-ignore-case On
+
+# Immediately add a trailing slash when autocompleting symlinks to directories
+set mark-symlinked-directories On
 
 # Show extra file information when completing, like `ls -F` does
 set visible-stats On
@@ -51,18 +68,7 @@ set convert-meta off
 "\e[3;3~": kill-word
 
 # do not make noise. Also visible can cause delays.
-set bell-style noneA
-
-# set editing-mode vi
-$if mode=vi
-        set keymap vi-command
-        set convert-meta on
-
-        set keymap vi-insert
-        "jj": vi-movement-mode
-        "\C-l":clear-screen
-        "\e.":yank-last-arg
-$endif
+set bell-style none
 
 $if Bash
   # F10 toggles mc on and off
